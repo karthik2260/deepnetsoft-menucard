@@ -12,7 +12,9 @@ import itemRoutes from './route/itemRoutes'
 const app = express();
 
 connectDB();
-
+app.use(cors({
+  origin: "https://your-frontend.vercel.app"
+}));
 app.use(cors(corsOption));
 app.use(express.json());
 
