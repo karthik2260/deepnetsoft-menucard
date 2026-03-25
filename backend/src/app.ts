@@ -15,7 +15,7 @@ connectDB();
 app.use(cors({
   origin: "https://your-frontend.vercel.app"
 }));
-app.use(cors(corsOption));
+
 app.use(express.json());
 
 
