@@ -1,13 +1,10 @@
-import dotenv from 'dotenv';
-dotenv.config();
-
+// backend/src/config/cors.Config.ts
 export const corsOption = {
   origin: [
-    process.env.FRONTEND_URL || 'http://localhost:5173'
+    'http://localhost:5173', // for local development
+    'https://deepnetsoft-menucard-app.vercel.app' // deployed frontend
   ],
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS', 'PATCH'],
-  allowedHeaders: ['Content-Type', 'Authorization', 'X-Requested-With', 'Accept'],
-  exposedHeaders: ['Content-Range', 'X-Content-Range'],
-  credentials: true,
-  maxAge: 86400, 
+  allowedHeaders: ['Content-Type', 'Authorization'],
+  credentials: true, // if using cookies
 };

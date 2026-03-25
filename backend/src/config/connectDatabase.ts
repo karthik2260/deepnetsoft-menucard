@@ -1,17 +1,15 @@
+// backend/src/config/connectDatabase.ts
 import mongoose from 'mongoose';
-import dotenv from 'dotenv';
-
-dotenv.config();
 
 export const connectDB = async () => {
   try {
     if (!process.env.MONGO_URI) {
-      throw new Error(`MONGODB_URI is not defined`);
+      throw new Error('MONGO_URI not defined in environment variables');
     }
-
-    const connect = await mongoose.connect(process.env.MONGO_URI);
-    console.log(`Mongodb connected : ${connect.connection.host}`);
+    await mongoose.connect(process.env.MONGO_URI);
+    console.log('MongoDB connected successfully');
   } catch (error) {
-    console.error(`Error from DB :${error}`);
+    console.error('MongoDB connection failed:', error);
+    process.exit(1); // stop the server if DB connection fails
   }
 };
