@@ -2,6 +2,8 @@ import axios from 'axios';
 
 const BASE_URL = 'https://deepnetsoft-menucard.onrender.com/api';
 
+console.log('API Base URL:', BASE_URL);
+
 export const axiosInstance = axios.create({
   baseURL: BASE_URL,
   headers: { 'Content-Type': 'application/json' },
