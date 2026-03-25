@@ -1,0 +1,12 @@
+import { createRoot } from 'react-dom/client';
+import { BrowserRouter as Router } from 'react-router-dom';
+import { Toaster } from 'react-hot-toast';
+import App from './App';
+import './index.css';
+
+createRoot(document.getElementById('root')!).render(
+  <Router>
+    <Toaster position="top-right" />
+    <App />
+  </Router>
+);
