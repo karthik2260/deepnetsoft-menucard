@@ -1,14 +1,11 @@
-// frontend/src/config/api/axiosInstance.ts
 import axios from 'axios';
 
-const BASE_URL = import.meta.env.VITE_API_URL;
+const BASE_URL = import.meta.env.VITE_API_URL || 'https://deepnetsoft-menucard.onrender.com/api';
 
-if (!BASE_URL) {
-  throw new Error('VITE_API_URL is not defined');
-}
+console.log('API Base URL:', BASE_URL);
 
 export const axiosInstance = axios.create({
   baseURL: BASE_URL,
   headers: { 'Content-Type': 'application/json' },
-  withCredentials: true, // only if using cookies/auth
+  withCredentials: true,
 });
